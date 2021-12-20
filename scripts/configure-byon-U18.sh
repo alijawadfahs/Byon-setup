@@ -28,7 +28,7 @@ log_print(){
 
 # Start the Configuration
 
-log_print INFO "Configuration stated!"
+log_print INFO "Configuration started!"
 log_print INFO "Logs are saved at: $LOGFILE"
 
 # Update the package list
