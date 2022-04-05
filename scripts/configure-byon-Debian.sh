@@ -6,8 +6,8 @@ PID=$(echo $$)
 DATE=$(date)
 LOGFILE="/var/log/byonlog.$PID.log"
 DIR="/home/byon-workspace"
-AGENTURL="https://www.activeeon.com/public_content/7cde3381417ff3784639dc41fa7e7cd0544a5234-morphemic-7bulls/activeeon_enterprise-node-linux-x64-11.1.0-SNAPSHOT.zip"
-AGENTFILE="activeeon_enterprise-node-linux-x64-11.1.0-SNAPSHOT"
+AGENTURL="https://www.activeeon.com/public_content/7cde3381417ff3784639dc41fa7e7cd0544a5234-morphemic-7bulls/activeeon_enterprise-node-linux-x64-12.0.6.zip"
+AGENTFILE="activeeon_enterprise-node-linux-x64-12.0.6"
 AGENTDIR="/opt"
 AGENTDIRNAME="ProActive_node_agent"
 
