@@ -54,11 +54,13 @@ sudo systemctl start docker
 sudo docker -v || { log_print ERROR "Docker installation failed!"; exit 1; }
 
 
-# Install Kubernetes
-log_print INFO "Installing Kubernetes"
-
+# Adding Kubernetes Repo
+log_print INFO "Adding Kubernetes Repo"
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" || { log_print ERROR "Kubernetes repo can't be added!"; exit 1; }
 
+# Install Kubernetes
+log_print INFO "Installing Kubernetes"
 sudo apt-get install -y kubeadm  || { log_print ERROR "kubeadm installation failed!"; exit 1; }
 sudo apt-get install -y kubectl  || { log_print ERROR "kubectl installation failed!"; exit 1; }
 sudo apt-get install -y kubelet  || { log_print ERROR "kubelet installation failed!"; exit 1; }
