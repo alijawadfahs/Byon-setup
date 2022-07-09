@@ -1,4 +1,4 @@
-#!\bin\bash
+#!/bin/bash
 
 
 # This bash script is designed to prepare and install docker and Kubernetes for Ubuntu 18.04
