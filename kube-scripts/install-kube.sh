@@ -73,7 +73,11 @@ sudo apt-mark hold kubeadm kubelet kubectl
 log_print INFO "Checking Kubernetes versions"
 
 kubeadm version     || { log_print ERROR "Docker installation failed!"; exit 1; }
-kubectl version     || { log_print ERROR "Docker installation failed!"; exit 1; }
+kubectl version
+if [ $? -gt 1 ]
+then
+	log_print ERROR "Docker installation failed!"; exit 1;
+fi
 kubelet --version   || { log_print ERROR "Docker installation failed!"; exit 1; }
 
 
