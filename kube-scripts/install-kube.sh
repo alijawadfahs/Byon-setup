@@ -30,6 +30,21 @@ log_print(){
   echo "$level [$(date)]: $Message" >&3
   }
 
+Check_lock() {
+i=0
+log_print INFO "Checking for apt lock"
+while [ `ps aux | grep [l]ock_is_held | wc -l` != 0 ]; do
+    echo "Lock_is_held $i"
+    ps aux | grep [l]ock_is_held
+    sleep 10
+    ((i=i+10));
+done
+log_print INFO "Exited the while loop, time spent: $i"
+echo "ps aux | grep apt"
+ps aux | grep apt
+log_print INFO "Waiting for lock task ended properly."
+}
+
 
 # Start the Configuration
 log_print INFO "Configuration started!"
@@ -39,6 +54,9 @@ log_print INFO "Logs are saved at: $LOGFILE"
 # Update the package list
 log_print INFO "Updating the package list."
 sudo apt-get update
+
+# Check for lock
+Check_lock
 
 # Install curl
 log_print INFO "Installing curl"
