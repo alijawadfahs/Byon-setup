@@ -29,7 +29,7 @@ log_print(){
   echo "$level [$(date)]: $Message"
   echo "$level [$(date)]: $Message" >&3
   }
-
+# A function to check for the apt lock
 Check_lock() {
 i=0
 log_print INFO "Checking for apt lock"
